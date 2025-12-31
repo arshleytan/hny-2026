@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy New Year, Baby!</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: #fff5f5;
+        color: #b3132c;
+        overflow-x: hidden;
+    }
+
+    section {
+        padding: 60px 20px;
+        text-align: center;
+        position: relative;
+    }
+
+    .title {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: #b3132c;
+    }
+
+    /* HERO SECTION */
+    #hero {
+        background: linear-gradient(135deg, #ffd6d6, #ffeaea);
+        padding: 130px 20px;
+        overflow: hidden;
+    }
+
+    #typing {
+        font-size: 2rem;
+        color: #b00020;
+        font-weight: 600;
+        white-space: nowrap;
+        border-right: 3px solid #b00020;
+        width: 0;
+        overflow: hidden;
+        margin: 0 auto;
+        animation: typing 4s steps(40, end) forwards, blink 0.7s infinite;
+    }
+
+    @keyframes typing {
+        from { width: 0; }
+        to { width: 100%; }
+    }
+    @keyframes blink {
+        50% { border-color: transparent; }
+    }
+
+    /* Sparkles */
+    .sparkle {
+        position: absolute;
+        color: #ffb3b3;
+        font-size: 12px;
+        animation: sparkleFloat 2s infinite ease-out;
+        pointer-events: none;
+    }
+    @keyframes sparkleFloat {
+        from { opacity: 1; transform: translateY(0) scale(1); }
+        to { opacity: 0; transform: translateY(-40px) scale(1.6); }
+    }
+
+    /* Slideshow */
+    .slideshow-container {
+        max-width: 400px;
+        margin: 30px auto;
+        overflow: hidden;
+        border-radius: 20px;
+        box-shadow: 0 0 15px rgba(176, 0, 32, 0.3);
+    }
+    .slide { display: none; }
+    .slide img { width: 100%; border-radius: 20px; }
+
+    /* Message box */
+    .message-box {
+        max-width: 600px;
+        margin: auto;
+        background: #ffe5e5;
+        padding: 25px;
+        border-radius: 20px;
+        box-shadow: 0 0 20px rgba(180, 0, 40, 0.2);
+        font-size: 1.1rem;
+        color: #8a0d23;
+        line-height: 1.8rem;
+    }
+
+    /* Gallery Section */
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 15px;
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+    }
+    .gallery-grid img {
+        width: 100%;
+        border-radius: 15px;
+        box-shadow: 0 3px 8px rgba(150, 20, 20, 0.3);
+    }
+
+    /* Fireworks */
+    #fireworks {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        pointer-events: none;
+    }
+</style>
+</head>
+
+<body>
+
+<canvas id="fireworks"></canvas>
+
+<!-- ❤️ HERO SECTION WITH TYPING + SPARKLES -->
+<section id="hero">
+    <div id="typing">Happy New Year, Hino! 🎆❤️</div>
+    <p style="margin-top:20px; font-size: large;">You were one of the softest parts of my year. <br> Thank you for the moments, the laughs, the comfort, and the quiet understanding you always give without being asked. <br>I appreciate you so damn much!</p>
+</section>
+
+<!-- ❤️ SPARKLE GENERATOR -->
+<script>
+setInterval(() => {
+    const section = document.getElementById("hero");
+    const sparkle = document.createElement("div");
+    sparkle.classList.add("sparkle");
+    sparkle.textContent = "✨";
+    sparkle.style.left = Math.random() * window.innerWidth + "px";
+    sparkle.style.top = (100 + Math.random() * 200) + "px";
+    sparkle.style.fontSize = (10 + Math.random() * 10) + "px";
+    section.appendChild(sparkle);
+    setTimeout(() => sparkle.remove(), 2000);
+}, 300);
+</script>
+
+<!-- ❤️ SLIDESHOW SECTION -->
+<section id="photos">
+    <h2 class="title">Us Being Us 😜</h2>
+
+    <div class="slideshow-container">
+        <div class="slide"><img src="photos/d1.jpg" alt="Photo 1"></div>
+        <div class="slide"><img src="photos/d2.jpg" alt="Photo 2"></div>
+        <div class="slide"><img src="photos/d3.jpg" alt="Photo 3"></div>
+        <div class="slide"><img src="photos/d5.jpeg" alt="Photo 5"></div>
+        <div class="slide"><img src="photos/d6.jpg" alt="Photo 6"></div>
+        <div class="slide"><img src="photos/h2.jpg" alt="Photo 8"></div>
+        <div class="slide"><img src="photos/h1.jpg" alt="Photo 7"></div>
+        <div class="slide"><img src="photos/h3.jpg" alt="Photo 9"></div>
+        <div class="slide"><img src="photos/h4.jpg" alt="Photo 10"></div>
+        <div class="slide"><img src="photos/s1.jpg" alt="Photo 11"></div>
+        <div class="slide"><img src="photos/s2.jpg" alt="Photo 12"></div>
+        <div class="slide"><img src="photos/s3.jpg" alt="Photo 13"></div>
+        <div class="slide"><img src="photos/s4.jpg" alt="Photo 14"></div>
+        <div class="slide"><img src="photos/s5.jpg" alt="Photo 15"></div>
+        <div class="slide"><img src="photos/s6.jpg" alt="Photo 16"></div>
+        <div class="slide"><img src="photos/b16.jpg" alt="Photo 17"></div>
+        <div class="slide"><img src="photos/b1.jpg" alt="Photo 18"></div>
+        <div class="slide"><img src="photos/b2.png" alt="Photo 19"></div>
+        <div class="slide"><img src="photos/b3.jpg" alt="Photo 20"></div>
+        <div class="slide"><img src="photos/b17.jpg" alt="Photo 23"></div>
+        <div class="slide"><img src="photos/b19.jpg" alt="Photo 24"></div>
+        <div class="slide"><img src="photos/b20.jpg" alt="Photo 25"></div>
+        <div class="slide"><img src="photos/b21.jpg" alt="Photo 26"></div>
+        <div class="slide"><img src="photos/b22.jpg" alt="Photo 27"></div>
+        <div class="slide"><img src="photos/b23.jpg" alt="Photo 28"></div>
+        <div class="slide"><img src="photos/b12.jpg" alt="Photo 29"></div>
+        <div class="slide"><img src="photos/b13.jpg" alt="Photo 30"></div>
+        <div class="slide"><img src="photos/b25.jpg" alt="Photo 33"></div>
+        <div class="slide"><img src="photos/b26.jpg" alt="Photo 34"></div>
+        <div class="slide"><img src="photos/b27.jpg" alt="Photo 35"></div>
+        <div class="slide"><img src="photos/b6.jpg" alt="Photo 37"></div>
+        <div class="slide"><img src="photos/b7.jpg" alt="Photo 38"></div>
+        <div class="slide"><img src="photos/b8.jpg" alt="Photo 39"></div>
+        <div class="slide"><img src="photos/b9.jpg" alt="Photo 40"></div>
+        <div class="slide"><img src="photos/b10.jpg" alt="Photo 41"></div>
+        <div class="slide"><img src="photos/b11.jpg" alt="Photo 42"></div>
+        <div class="slide"><img src="photos/b4.jpg" alt="Photo 21"></div>
+        <div class="slide"><img src="photos/b5.jpg" alt="Photo 22"></div>
+        <div class="slide"><img src="photos/b15.jpg" alt="Photo 31"></div>
+        <div class="slide"><img src="photos/b24.jpg" alt="Photo 32"></div>
+        <div class="slide"><img src="photos/b28.jpg" alt="Photo 36"></div>
+        <div class="slide"><img src="photos/b14.jpg" alt="Photo 43"></div>
+        <div class="slide"><img src="photos/baby.jpg" alt="Photo 44"></div>
+        <div class="slide"><img src="photos/snapshot.jpg" alt="Photo 45"></div>
+    </div>
+
+    <button onclick="startSlides()" style="
+        margin-top:20px;background:#b3132c;
+        color:white;padding:12px 25px;border:none;
+        border-radius:25px;font-size:16px;cursor:pointer;">
+        Peek at Our Memories! ✨📷
+    </button>
+</section>
+
+<!-- ❤️ LETTER SECTION -->
+<section id="message">
+    <h2 class="title">To My Favorite Person 💌</h2>
+    <div class="message-box">
+        Hey Hino,  
+        <br><br>
+        Thank you for being my safe space, peace and happiness.  
+        For laughing with me, listening to me,  
+        and being one of the brightest parts of my 2025.  
+        <br><br>
+        I hope 2026 brings you peace, softness, and love  
+        in ways you never expected. You deserve all the good things,
+        and you’ll always be the one I choose and love, year after year.
+        <br><br>
+        – Your Close Friend HAHAHA!🫶
+    </div>
+</section>
+
+<!-- ❤️ GALLERY PAGE -->
+<section id="gallery">
+    <h2 class="title">Snapshots of Us 😜💖</h2>
+
+    <div class="gallery-grid">
+        <img src="photos/b9.jpg">
+        <img src="photos/b11.jpg">
+        <img src="photos/b26.jpg">
+        <img src="photos/snapshot.jpg">
+        <img src="photos/s5.jpg">
+        <img src="photos/b4.jpg">
+        <img src="photos/b5.jpg">
+        <img src="photos/b15.jpg">
+        <img src="photos/b28.jpg">
+        <img src="photos/b24.jpg">
+    </div>
+</section>
+
+<!-- ❤️ FINAL SECTION -->
+<section id="final">
+    <h2 class="title">More Laughs, More Chaos, More Us! 😆✨</h2>
+    <p>I’m grateful for you, always. I love you so much!</p>
+</section>
+
+<script>
+/* SLIDESHOW */
+let slideIndex = 0;
+function startSlides() {
+    const slides = document.getElementsByClassName("slide");
+    for (let s of slides) s.style.display = "none";
+    slideIndex = (slideIndex % slides.length) + 1;
+    slides[slideIndex - 1].style.display = "block";
+    setTimeout(startSlides, 2500);
+}
+
+/* FIREWORKS BACKGROUND */
+const canvas = document.getElementById("fireworks");
+const ctx = canvas.getContext("2d");
+canvas.width = innerWidth;
+canvas.height = innerHeight;
+
+window.onresize = () => {
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
+};
+
+function random(min, max) { return Math.random() * (max - min) + min; }
+
+function Firework() {
+    this.x = random(0, canvas.width);
+    this.y = canvas.height;
+    this.targetY = random(100, 300);
+    this.size = 2;
+    this.speed = random(2, 4);
+    this.exploded = false;
+    this.particles = [];
+}
+Firework.prototype.update = function() {
+    if (!this.exploded) {
+        this.y -= this.speed;
+        if (this.y <= this.targetY) {
+            this.exploded = true;
+            for (let i = 0; i < 30; i++) {
+                this.particles.push(new Particle(this.x, this.y));
+            }
+        }
+    }
+};
+Firework.prototype.draw = function() {
+    if (!this.exploded) {
+        ctx.fillStyle = "#d62839";
+        ctx.fillRect(this.x, this.y, this.size, this.size);
+    }
+    this.particles.forEach(p => {
+        p.update();
+        p.draw();
+    });
+};
+
+function Particle(x, y) {
+    this.x = x;
+    this.y = y;
+    this.size = random(2, 4);
+    this.speedX = random(-2, 2);
+    this.speedY = random(-2, 2);
+    this.alpha = 1;
+}
+Particle.prototype.update = function() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+    this.alpha -= 0.02;
+};
+Particle.prototype.draw = function() {
+    ctx.fillStyle = `rgba(214, 40, 57, ${this.alpha})`;
+    ctx.fillRect(this.x, this.y, this.size, this.size);
+};
+
+let fireworks = [];
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    if (Math.random() < 0.05) fireworks.push(new Firework());
+
+    fireworks = fireworks.filter(f => {
+        f.update();
+        f.draw();
+        return !f.exploded || f.particles.some(p => p.alpha > 0);
+    });
+    requestAnimationFrame(animate);
+}
+animate();
+</script>
+
+</body>
+</html>
