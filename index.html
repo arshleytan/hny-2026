@@ -118,6 +118,7 @@
 </head>
 
 <body>
+<audio id="tone" src="tone.mp3" preload="auto"></audio>
 
 <canvas id="fireworks"></canvas>
 
@@ -193,7 +194,7 @@ setInterval(() => {
         <div class="slide"><img src="photos/snapshot.jpg" alt="Photo 45"></div>
     </div>
 
-    <button onclick="startSlides()" style="
+    <button onclick="playToneAndSlides()" style="
         margin-top:20px;background:#b3132c;
         color:white;padding:12px 25px;border:none;
         border-radius:25px;font-size:16px;cursor:pointer;">
@@ -242,6 +243,18 @@ setInterval(() => {
     <h2 class="title">More Laughs, More Chaos, More Us! 😆✨</h2>
     <p>I’m grateful for you, always. I love you so much!</p>
 </section>
+
+<script>
+function playToneAndSlides() {
+    // Play the tone
+    const audio = document.getElementById("tone");
+    audio.currentTime = 0; // restart if already playing
+    audio.play();
+
+    // Start the slideshow
+    startSlides();
+}
+</script>
 
 <script>
 /* SLIDESHOW */
